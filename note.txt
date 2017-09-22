@@ -1,0 +1,16 @@
+//zhinengshe chengxiaobing
+webpack //生产环境
+webpack -p //生产环境(压缩)
+webpack -w //自动监听
+webpack -d //开启(source maps)调试
+webpack -wpd
+
+//极其不推荐
+若不用webpack.config.js
+运行时: webpack --config 文件名
+
+//babel 以及预设模块
+cnpm intall babel-loader babel-core babel-preset-es2015 -D
+
+导出模块: export default {}
+引入模块: import 名字 from 模块名

@@ -1,0 +1,31 @@
+{
+  "name": "webpack-1",
+  "version": "1.0.0",
+  "description": "webpack demo",
+  "main": "entry.js",
+  "scripts": {
+    "test": "test111"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HoldCast/webpack-git.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "holdcast",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HoldCast/webpack-git/issues"
+  },
+  "homepage": "https://github.com/HoldCast/webpack-git#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "css-loader": "^0.28.7",
+    "jquery": "^3.2.1",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.6.0"
+  }
+}
