@@ -11,9 +11,13 @@ webpack -wpd
 
 //babel 以及预设模块
 npm install babel-loader babel-core babel-preset-es2015 -D
-npm install --save-dev babel-loader babel-core babel-preset-env webpack
+npm install --save-dev babel-loader babel-core babel-preset-env
 //引入文件模块
 npm install extract-text-webpack-plugin --save-dev
+npm install --sae-dev extract-text-webpack-plugin babel-loader babel-core babel-preset-env css-loader style-loader sass-loader
+
 
 导出模块: export default {}
 引入模块: import 名字 from 模块名
+
+实时刷新: npm install webpack-dev-server -g

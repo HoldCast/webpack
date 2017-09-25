@@ -9,6 +9,11 @@ const extractSass = new ExtractTextPlugin({
 
 
 module.exports = {
+    devServer: {
+        contentBase: "./",//本地服务器所加载的页面所在的目录
+        historyApiFallback: false,//不跳转index
+        inline: true//实时刷新
+    },
     entry: {
         //main: './entry.js',
         index:'./public/js/index.js',
@@ -17,13 +22,18 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        //path: __dirname + '/src/dist'
+        //path: __dirname + '/src/dist',
         path: path.resolve(__dirname, 'build'),
-        publicPath: './build/'
+        publicPath: 'http://localhost:8080/build',
+        //publicPath: './build/'
         //path: path.resolve(__dirname, 'build'), filename: '[name].bundle.js', publicPath: './build/'
     },
     module: {
         rules: [
+            {
+                test: /.(jpg|png|gif|svg)$/,
+                use: ['url-loader?limit=8192&name=./[name].[ext]']
+            },/*解析图片*/
             //babel
             {
                 test: /\.js$/,
@@ -75,7 +85,7 @@ module.exports = {
     plugins: [
         commonJS,
         extractSass,
-        new webpack.optimize.UglifyJsPlugin(), //压缩代码
+        //new webpack.optimize.UglifyJsPlugin(), //压缩代码
     ]
     /*
      *
