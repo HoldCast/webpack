@@ -1,1 +1,1 @@
-module.exports='It works from module.js . this module AAA';
+module.exports='It works from module.js . this module AAAA';

@@ -4,8 +4,7 @@
   "description": "webpack demo",
   "main": "entry.js",
   "scripts": {
-    "test": "test111",
-    "xuan": "webpack-dev-server --devtool eval-source-map --progress --colors"
+    "start": "webpack-dev-server --devtool eval-source-map --progress --colors"
   },
   "repository": {
     "type": "git",
