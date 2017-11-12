@@ -1,10 +1,10 @@
 {
-  "name": "webpack-1",
+  "name": "webpack-2017",
   "version": "1.0.0",
   "description": "webpack demo",
   "main": "entry.js",
   "scripts": {
-    "start": "webpack-dev-server --devtool eval-source-map --progress --colors"
+    "dev": "webpack-dev-server --devtool eval-source-map --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -16,21 +16,27 @@
   "author": "holdcast",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HoldCast/webpack-git/issues"
+    "url": "https://github.com/HoldCast/webpack/issues"
   },
-  "homepage": "https://github.com/HoldCast/webpack-git#readme",
+  "homepage": "https://github.com/HoldCast/webpack#readme",
   "devDependencies": {
+    "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "css-loader": "^0.28.7",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.2.1",
-    "node-sass": "^4.5.3",
+    "json-loader": "^0.5.7",
+    "less-loader": "^4.0.5",
+    "node-sass": "^4.6.1",
+    "postcss-loader": "^2.0.8",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.6.0"
+    "webpack": "^3.8.1"
   }
 }

@@ -1,103 +1,61 @@
+/*传统方式*/
+
 const webpack = require('webpack');
-const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractSass = new ExtractTextPlugin({
-    filename: "[name].css",
-    disable: process.env.NODE_ENV === "development"
-});
-
-
+const htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    //本地服务器
-    devServer: {
-        contentBase: "./",          //本地服务器所加载的页面所在的目录
-        historyApiFallback: false,  //依赖HTML5 history API,如果设置为true,所有的页面跳转指向index.html
-        inline: true                //实时刷新
-    },
-    //多个入口文件
-    entry: {
-        //vendor: ["jquery", "other-lib"],
-        //main: './entry.js',
-        index:'./public/js/index.js',
-        //list:'./public/js/list.js'
-        //...多个页面的入口
-    },
+    entry:'./app/main.js',   //入口文件的位置
     output: {
-        filename: '[name].bundle.js',
-        //path: __dirname + '/src/dist',
-        path: path.resolve(__dirname, 'build'), //将参数__dirname位置的字符,解析到一个绝对路径(build)里。
-        publicPath: '/assets/',
-        //publicPath: 'http://localhost:8080/build',
-        //path: path.resolve(__dirname, 'build'), filename: '[name].bundle.js', publicPath: './build/'
+        path: __dirname + '/public',    //打包后的文件放置的位置
+        filename: 'webpack.js',         //打包后的文件名称
     },
     module: {
-        rules: [
+        loaders: [
             {
-                test: /.(jpg|png|gif|svg)$/,
-                use: ['url-loader?limit=8192&name=./[name].[ext]']
-            },/*解析图片*/
-            //babel
+                test: /\.json$/,
+                loader: "json-loader"
+            },
+            {
+                test: /\.css/,
+                loaders: "style-loader!css-loader"  //从右往左执行
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env'],   //所有模式
-                        //plugins: ['transform-runtime']
-                    }
+                loader: 'babel-loader',
+                query: {
+                    presets: ['env'],   //所有模式
                 }
-            },
-            /*{
-                test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
-            },*/
-            //style!css
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "css-loader"
-                })
-            },
-            {
-                test: /\.scss$/,
-                use: extractSass.extract({
-                    use: [{
-                        loader: "css-loader"
-                    }, {
-                        loader: "sass-loader"
-                    }],
-                    // 在开发环境使用 style-loader
-                    fallback: "style-loader"
-                })
-            },
-            /*{
-                test: /\.scss$/,
-                use: [{
-                    loader: "style-loader" // 将 JS 字符串生成为 style 节点
-                }, {
-                    loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
-                }, {
-                    loader: "sass-loader" // 将 Sass 编译成 CSS
-                }]
-            }*/
+            }
         ]
     },
+    //插件使用
     plugins: [
-        //提取公共部分 CommonsChunkPlugin('common')
-        new webpack.optimize.CommonsChunkPlugin({
-            //name: "vendor",
-            name: "common",
-            //filename: "vendor.js"
-            // (给 chunk 一个不同的名字)
+        //new webpack.HotModuleReplacementPlugin(),   //热加载，hot:true,已经不起作用
+        //new webpack.BannerPlugin('holdcast 出品！'), //版权声明
+        /*new htmlWebpackPlugin({
+            template: __dirname + '/app/t1.html'    //通过这个模板生成index.html
+        })*/
+        /*//提取公共部分 CommonsChunkPlugin('common')
+         new webpack.optimize.CommonsChunkPlugin({
+         //name: "vendor",
+         name: "common",
+         //filename: "vendor.js"
+         // (给 chunk 一个不同的名字)
 
-            // minChunks: 3, // (模块必须被3个 入口chunk 共享)
+         // minChunks: 3, // (模块必须被3个 入口chunk 共享)
 
-            // 随着 entrie chunk 越来越多，
-            // 这个配置保证没其它的模块会打包进 vendor chunk
-        }),
-        extractSass,
-        new webpack.optimize.UglifyJsPlugin(), //压缩代码
-    ]
+         // 随着 entrie chunk 越来越多，
+         // 这个配置保证没其它的模块会打包进 vendor chunk
+         }),
+         extractSass,
+         new webpack.optimize.UglifyJsPlugin(), //压缩代码*/
+    ],
+    //本地服务器
+    devServer: {
+        contentBase: "./public",    //监听改变的目录
+        historyApiFallback: false,  //依赖HTML5 history API,如果设置为true,所有的页面跳转指向index.html.spa时使用
+        inline: true,               //实时刷新
+        //colors: true,               //终端颜色，通过插件才起作用
+        //hot:true,                  //热加载
+    }
 };
