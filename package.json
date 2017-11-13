@@ -2,7 +2,7 @@
   "name": "webpack-2017",
   "version": "1.0.0",
   "description": "webpack demo",
-  "main": "entry.js",
+  "main": "main.js",
   "scripts": {
     "dev": "webpack-dev-server --devtool eval-source-map --progress --colors"
   },
