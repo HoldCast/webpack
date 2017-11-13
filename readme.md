@@ -11,7 +11,9 @@
 
 
 1.npm install webpack -g //全局安装webpack
+
 2.npm init //当前目录下，创建配置项
+
 3.安装其他依赖项
     npm install --save-dev webpack jquery  url-loader json-loader style-loader css-loader less-loader node-sass sass-loader extract-text-webpack-plugin babel-loader babel-core babel-preset-env postcss-loader autoprefixer html-webpack-plugin
 
