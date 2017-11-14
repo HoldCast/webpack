@@ -51,4 +51,9 @@
 
     导出模块: export default {}
     引入模块: import 名字 from
+
+##webpack 优秀文章
+###[https://github.com/webpack-china/awesome-webpack-cn](https://github.com/webpack-china/awesome-webpack-cn)
+
+
    
