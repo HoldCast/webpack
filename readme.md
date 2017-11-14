@@ -23,13 +23,13 @@
 
 6.package.js 配置 ：
 "scripts": {
-    "start" : "webpack",  //start 相当于var关键字，只能用start不能用其他名字
-    "go": "webpack",      //运行时使用npm run go
-    "test": "test"
-},
+    "start" : "webpack",  //运行时输入 start (star相当于关键字,其他字符只能用下面的方法)
+    "go": "webpack",      //运行时输入 npm run go
+}
+
 7.{
       test: /\.css/,
-      loaders: "style-loader!css-loader"  //从右往左执行 ！链接多个loader
+      loaders: "style-loader!css-loader"  //注意 从右往左执行,使用"!"链接多个loader
   }
   
 8.实时刷新服务器环境安装: npm install webpack-dev-server -g
