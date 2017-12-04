@@ -34,6 +34,40 @@
   
 8.实时刷新服务器环境安装: npm install webpack-dev-server -g
 
+---
+9.react环境安装
+- npm install react react-dom babel-preset-react --save-dev
+- 配置webpack.config
+```
+{
+    test: /\.js$/,
+    exclude: /node_modules/,
+    use: {
+        loader: 'babel-loader',
+        options: {
+            presets: ['env','babel-preset-react'],   //所有模式
+            //plugins: ['transform-runtime']
+        }
+    }
+},
+{
+    test: /\.jsx$/,
+    exclude: /node_modules/,
+    use: {
+        loader: 'babel-loader',
+        options: {
+            presets: ['env','babel-preset-react'],   //所有模式
+            //plugins: ['transform-runtime']
+        }
+    }
+},
+```
+
+.ps.
+--display-error-detail 可以显示 webpack 出现错误的中间过程，方便在出错时进行查看。
+--progress --colors 可以显示进度
+--watch 可以监视文件的变化并在变化后重新加载
+//webpack-dev-server --devtool eval-source-map --progress --colors"
 
     其他：
     webpack //生产环境

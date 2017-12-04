@@ -1,16 +1,24 @@
-/* config-1.js 使用*/
-/*
-var m1 = require('./js/module');
-require('./css/style.css');
 require('./css/style.scss');
-console.log(m1.a);
-*/
 
+import React from "react";
+import ReactDOM from "react-dom";
+import Hello from "./js/react.jsx";
 import $ from 'jquery';
-require('./css/style.css');
-require('./css/style.scss');
-var module = require('./js/module.js');
-$('#app').text(module.a);
-var oImg = new Image();
+
+//module
+let module = require('./js/module.js');
+$('#module').text(module.a);
+
+//react
+ReactDOM.render(
+    <Hello />,
+    document.querySelector('#react')
+);
+
+//jQuery
+let oImg = new Image();
 oImg.src = require('./img/1.gif');//当成模块引入图片
-$('body').append(oImg);
+$('#img').append(oImg);
+
+
+

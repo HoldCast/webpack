@@ -34,7 +34,18 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env'],   //所有模式
+                        presets: ['env','babel-preset-react'],   //所有模式
+                        //plugins: ['transform-runtime']
+                    }
+                }
+            },
+            {
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env','babel-preset-react'],   //所有模式
                         //plugins: ['transform-runtime']
                     }
                 }
